@@ -313,36 +313,8 @@ button:disabled {
     transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    section {
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
-    }
-
-    #skills,
-    #contact {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-}
-
-@media (max-width: 768px) {
+/* Mobil qurilmalar */
+@media (max-width: 480px) {
     header {
         flex-direction: column;
         align-items: flex-start;
@@ -351,37 +323,147 @@ button:disabled {
 
     nav ul {
         flex-direction: column;
+        gap: 1rem;
         width: 100%;
-        gap: 0.5rem;
+        display: none;
     }
 
-    #language-switcher,
-    #theme-toggle,
-    #menu-toggle {
-        align-self: flex-end;
-        margin-top: 0.5rem;
-    }
-
-    #theme-toggle,
-    #language-switcher {
-        margin-right: 10px;
+    nav ul.active {
+        display: flex;
     }
 
     .menu-toggle {
+        display: block;
         background: none;
         border: none;
         font-size: 1.5rem;
         color: #00FFB2;
-        cursor: pointer;
     }
 
-    nav {
-        display: none;
-        /* default: berkitilgan */
+    #language-switcher,
+    #theme-toggle {
+        align-self: flex-end;
+    }
+}
+
+/* Katta telefon */
+@media (min-width: 481px) and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
         width: 100%;
+        display: none;
     }
 
-    nav.active {
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
         display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #00FFB2;
+    }
+
+    #language-switcher,
+    #theme-toggle {
+        align-self: flex-end;
+    }
+}
+
+/* Planshet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Kompyuter */
+@media (min-width: 1025px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    nav ul {
+        display: flex !important;
+        flex-direction: row;
+    }
+}
+
+/* Redmi 9 A uchun */
+@media (max-width: 720px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.6rem;
+        background: none;
+        border: none;
+        color: #00FFB2;
+        cursor: pointer;
+        margin-top: 0.5rem;
+    }
+
+    #language-switcher,
+    #theme-toggle {
+        align-self: flex-end;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .project-image {
+        height: 120px;
+    }
+
+    form input,
+    form textarea {
+        font-size: 1rem;
+    }
+
+    .view-button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
     }
 }

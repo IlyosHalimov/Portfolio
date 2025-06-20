@@ -200,3 +200,5 @@ contactForm.addEventListener("submit", function (e) {
 
     }, 2000);
 });
+// git pull --rebase origin main
+// git push origin main
