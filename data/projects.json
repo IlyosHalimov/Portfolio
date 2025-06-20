@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Restaurant Menu",
+        "description": "JavaScript yordamida yaratgan menyu loyihasi.",
+        "image": "img/restaurant-menu.png",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "link": "#"
+    },
+    {
+        "title": "Python Telegram Bot",
+        "description": "Oddiy buyruqlarni bajaradigan Telegram bot.",
+        "image": "img/telegram-bot.png",
+        "technologies": [
+            "Python",
+            "Telegram API"
+        ],
+        "link": "#"
+    },
+    {
+        "title": "Python Telegram Bot",
+        "description": "Oddiy buyruqlarni bajaradigan Telegram bot.",
+        "image": "img/telegram-bot.png",
+        "technologies": [
+            "Python",
+            "Telegram API"
+        ],
+        "link": "#"
+    },
+    {
+        "title": "Portfolio Website",
+        "description": "Shaxsiy portfolio veb-sayti.",
+        "image": "img/portfolio-website.png",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "link": "#"
+    },
+    {
+        "title": "Weather App",
+        "description": "Havo holatini ko'rsatadigan ilova.",
+        "image": "img/weather-app.png",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "API"
+        ],
+        "link": "#"
+    }
+]

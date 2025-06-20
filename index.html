@@ -1,0 +1,120 @@
+<!-- Fayl yo‘li: client/index.html -->
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title -->
+  <title>QR CODE — Halimov Ilyos Portfolio</title>
+
+  <!-- Description -->
+  <meta name="description"
+    content="Halimov Ilyosning rasmiy portfolio sayti — frontend, Python va kreativ loyihalar bilan tanishing.">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="QR CODE, Ilyos Halimov, portfolio, frontend, python, JavaScript, web developer">
+
+  <!-- Author -->
+  <meta name="author" content="Halimov Ilyos">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+  <header>
+    <div class="logo">QR CODE</div>
+    <nav>
+      <ul>
+        <li><a href="#home" data-i18n="home">Bosh sahifa</a></li>
+        <li><a href="#about" data-i18n="about">Men haqimda</a></li>
+        <li><a href="#projects" data-i18n="projects">Loyihalar</a></li>
+        <li><a href="#skills" data-i18n="skills">Ko‘nikmalar</a></li>
+        <li><a href="#contact" data-i18n="contact">Aloqa</a></li>
+      </ul>
+    </nav>
+    <!-- header ichida til tanlovchining yoniga -->
+    <button id="theme-toggle">🌙</button>
+    <select id="language-switcher">
+      <option value="uz">O'zbek</option>
+      <option value="en">English</option>
+    </select>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </header>
+  <main>
+    <section id="home" data-aos="zoom-in">
+      <h1 data-i18n="welcome">Xush kelibsiz!</h1>
+      <p data-i18n="intro">Bu mening shaxsiy portfoliom — QR CODE.</p>
+    </section>
+    <section id="about" data-aos="zoom-in">
+      <h2 data-i18n="about">Men haqimda</h2>
+      <p data-i18n="about">Men Halimov Ilyos, frontend va Python dasturchisiman.</p>
+    </section>
+
+    <section id="projects" data-aos="fade-right">
+      <h2 data-i18n="projects">Loyihalar</h2>
+      <div class="project-list" data-aos="fade-right"></div>
+    </section>
+    <section id="skills" data-aos="fade-right">
+      <h2 data-i18n="skills">Ko'nikmalar</h2>
+      <div class="skill" data-aos="fade-left">
+        <p>HTML</p>
+        <div class="progress">
+          <div class="progress-bar" style="width: 90%"></div>
+        </div>
+      </div>
+      <div class="skill" data-aos="fade-left">
+        <p>CSS</p>
+        <div class="progress">
+          <div class="progress-bar" style="width: 85%"></div>
+        </div>
+      </div>
+      <div class="skill" data-aos="fade-left">
+        <p>JavaScript</p>
+        <div class="progress">
+          <div class="progress-bar" style="width: 75%"></div>
+        </div>
+      </div>
+      <div class="skill" data-aos="fade-left">
+        <p>Python</p>
+        <div class="progress">
+          <div class="progress-bar" style="width: 80%"></div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" data-aos="fade-up">
+      <h2 data-i18n="contact">Aloqa</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Ismingiz" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Xabaringizni yozing..." required></textarea>
+        <button type="submit" id="send-button" data-i18n="send">Yuborish</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 QR CODE</p>
+  </footer>
+  <button id="scrollToTopBtn" title="Yuqoriga qaytish">↑</button>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
