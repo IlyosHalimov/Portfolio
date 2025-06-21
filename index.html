@@ -33,7 +33,9 @@
 </head>
 
 <body>
-  <header>
+
+  <!-- <header>
+    <div id="connection-status" class="status-bar" style="display: none;"></div>
     <div class="logo">QR CODE</div>
     <nav>
       <ul>
@@ -43,15 +45,39 @@
         <li><a href="#skills" data-i18n="skills">Ko‘nikmalar</a></li>
         <li><a href="#contact" data-i18n="contact">Aloqa</a></li>
       </ul>
-    </nav>
-    <!-- header ichida til tanlovchining yoniga -->
-    <button id="theme-toggle">🌙</button>
+    </nav> -->
+  <!-- header ichida til tanlovchining yoniga -->
+  <!-- <button id="theme-toggle">🌙</button>
     <select id="language-switcher">
       <option value="uz">O'zbek</option>
       <option value="en">English</option>
     </select>
     <button class="menu-toggle" id="menu-toggle">☰</button>
+  </header> -->
+  <header>
+    <div id="connection-status" class="status-bar" style="display: none;"></div>
+    <div class="header-container">
+      <div class="logo">QR CODE</div>
+      <div class="header-actions">
+        <button id="theme-toggle">🌙</button>
+        <select id="language-switcher">
+          <option value="uz">O'zbek</option>
+          <option value="en">English</option>
+        </select>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home" data-i18n="home">Bosh sahifa</a></li>
+        <li><a href="#about" data-i18n="about">Men haqimda</a></li>
+        <li><a href="#projects" data-i18n="projects">Loyihalar</a></li>
+        <li><a href="#skills" data-i18n="skills">Ko‘nikmalar</a></li>
+        <li><a href="#contact" data-i18n="contact">Aloqa</a></li>
+      </ul>
+    </nav>
   </header>
+
   <main>
     <section id="home" data-aos="zoom-in">
       <h1 data-i18n="welcome">Xush kelibsiz!</h1>
@@ -64,6 +90,9 @@
 
     <section id="projects" data-aos="fade-right">
       <h2 data-i18n="projects">Loyihalar</h2>
+      <input style="margin-bottom: 2vh;" type="text" id="project-search"
+        placeholder="Loyiha nomi bo‘yicha qidiring..." />
+      <button class="feedback-button">💬 Fikr bildirish</button>
       <div class="project-list" data-aos="fade-right"></div>
     </section>
     <section id="skills" data-aos="fade-right">
@@ -102,12 +131,28 @@
         <button type="submit" id="send-button" data-i18n="send">Yuborish</button>
       </form>
     </section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 QR CODE</p>
   </footer>
-  <button id="scrollToTopBtn" title="Yuqoriga qaytish">↑</button>
+  <div id="feedback-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3>💬 Fikr qoldiring</h3>
+      <form id="feedback-form">
+        <input type="text" placeholder="Ismingiz" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Fikringiz..." required></textarea>
+        <button type="submit">Yuborish</button>
+      </form>
+    </div>
+  </div>
+  <!-- Toast notification -->
+  <div id="toast" class="toast">Xabar yuborildi ✅</div>
+  <!-- Scroll to Top tugmasi -->
+  <button id="scrollToTop" title="Yuqoriga qaytish">⬆️</button>
 
 
   <script src="script.js"></script>

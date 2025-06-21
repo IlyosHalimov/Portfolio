@@ -51,43 +51,78 @@ window.addEventListener("DOMContentLoaded", () => {
     switcher.value = savedLang;
     setLanguage(savedLang);
 });
-// Loyihalarni yuklash funksiyasi
+let allProjects = []; // global massiv
+
 function loadProjects() {
     fetch("data/projects.json")
         .then((res) => res.json())
         .then((projects) => {
-            const container = document.querySelector(".project-list");
-            container.innerHTML = "";
-
-            projects.forEach((proj, index) => {
-                const techList = proj.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join(" ");
-                const card = document.createElement("div");
-                card.className = "project-card";
-
-                // ✅ AOS atributlari
-                card.setAttribute("data-aos", "fade-up");
-                card.setAttribute("data-aos-delay", `${index * 200}`);
-
-                card.innerHTML = `
-          <img src="${proj.image}" alt="${proj.title}" class="project-image">
-          <h3>${proj.title}</h3>
-          <p>${proj.description}</p>
-          <div class="tech-list">${techList}</div>
-          <a href="${proj.link}" target="_blank" class="view-button">Ko‘rish</a>
-        `;
-                container.appendChild(card);
-            });
+            allProjects = projects; // <-- shart!
+            renderProjects(projects); // <-- barchasini ko‘rsatish
         })
         .catch((err) => {
             console.error("Loyihalarni yuklashda xatolik:", err);
         });
 }
+function renderProjects(projects) {
+    const container = document.querySelector(".project-list");
+    container.innerHTML = "";
+
+    projects.forEach((proj, index) => {
+        const techList = proj.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join(" ");
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.setAttribute("data-aos", "fade-up");
+        card.setAttribute("data-aos-delay", `${index * 200}`);
+
+        card.innerHTML = `
+            <img src="${proj.image}" alt="${proj.title}" class="project-image">
+            <h3>${proj.title}</h3>
+            <p>${proj.description}</p>
+            <div class="tech-list">${techList}</div>
+            <a href="${proj.link}" target="_blank" class="view-button">Ko‘rish</a>
+        `;
+        container.appendChild(card);
+    });
+}
+
+const modal = document.getElementById("feedback-modal");
+const closeBtn = document.querySelector(".close-button");
+
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("feedback-button")) {
+        modal.style.display = "block";
+    }
+    if (e.target === modal || e.target === closeBtn) {
+        modal.style.display = "none";
+    }
+});
+
+
+document.getElementById("feedback-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Fikringiz uchun rahmat! 😊 (Bu test holati)");
+    modal.style.display = "none";
+});
+
 window.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("selectedLanguage") || "uz";
     switcher.value = savedLang;
     setLanguage(savedLang);
-    loadProjects(); // 👌 bu yerda to‘g‘ri chaqirilyapti
+    loadProjects(); // ← loyihalarni yuklash
 });
+
+// Qidirish funksiyasi
+const searchInput = document.getElementById("project-search");
+
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const filtered = allProjects.filter((proj) =>
+        proj.title.toLowerCase().includes(query)
+    );
+    renderProjects(filtered);
+});
+
 // Ko‘nikmalarni yuklash funksiyasi
 function loadSkills() {
     fetch("data/skills.json")
@@ -200,5 +235,59 @@ contactForm.addEventListener("submit", function (e) {
 
     }, 2000);
 });
+// Yuqoriga qaytish tugmasi
+const scrollBtn = document.getElementById("scrollToTop");
+
+// Scroll paydo bo‘lishi uchun kuzatuv
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollBtn.style.display = "block";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+});
+
+// Tugmani bosganda yuqoriga qaytarish
+scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+// Kontakt formasi uchun Toast xabari
+const toast = document.getElementById("toast");
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // sahifa yangilanmasin
+    // Toast ko‘rsatish
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000); // 3 soniyada yo‘qoladi
+
+    contactForm.reset(); // formani tozalash
+});
+// Internet aloqasi statusini ko‘rsatish
+const statusBar = document.getElementById("connection-status");
+
+function showStatus(isOnline) {
+    if (isOnline) {
+        statusBar.textContent = "🔄 Internet aloqasi tiklandi!";
+        statusBar.className = "status-bar online";
+    } else {
+        statusBar.textContent = "📡 Siz offline holatdasiz!";
+        statusBar.className = "status-bar offline";
+    }
+    statusBar.style.display = "block";
+
+    setTimeout(() => {
+        statusBar.style.display = "none";
+    }, 3000);
+}
+
+// Hodisalar
+window.addEventListener("online", () => showStatus(true));
+window.addEventListener("offline", () => showStatus(false));
+
 // git pull --rebase origin main
 // git push origin main
